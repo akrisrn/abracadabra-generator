@@ -1,6 +1,12 @@
 import pymysql
 import re
 
+db_host = ''
+db_port = 3306
+db_user = ''
+db_password = ''
+db_name = ''
+
 
 def analyse(s):
     s = re.sub('[^a-zA-Z]', '', s)
@@ -23,12 +29,6 @@ def analyse(s):
                     j += 1
                 k += 1
 
-
-db_host = ''
-db_port = 3306
-db_user = ''
-db_password = ''
-db_name = ''
 
 conn = pymysql.connect(host=db_host,
                        port=db_port,

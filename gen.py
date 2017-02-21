@@ -1,5 +1,5 @@
 from random import randint, uniform, seed
-
+import sys
 import pymysql
 
 
@@ -11,11 +11,9 @@ def ran_double():
     return uniform(1, 100)
 
 
-def get_word(ss=None):
+def get_word(s_c, sp_c, ss):
     if ss:
         seed(ss)
-    s_c = ran_int(3)
-    sp_c = ran_int(10)
 
     db_host = ''
     db_port = 3306
@@ -55,4 +53,5 @@ def get_word(ss=None):
     return ste
 
 if __name__ == '__main__':
-    print(get_word())
+    d = dict(zip([i for i in range(len(sys.argv))], sys.argv))
+    print(get_word(int(d.get(1, 3)), int(d.get(2, 10)), d.get(3)))
